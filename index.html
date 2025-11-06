@@ -84,6 +84,14 @@ videos.forEach(v=>{
   grid.appendChild(card);
 });
 </script>
+<script>
+function sendWallHeight() {
+  var h = document.documentElement.scrollHeight || document.body.scrollHeight;
+  parent.postMessage({ type: 'geobearWallHeight', height: h }, '*');
+}
+window.addEventListener('load', sendWallHeight);
+window.addEventListener('resize', sendWallHeight);
+</script>
 
 </body>
 </html>
