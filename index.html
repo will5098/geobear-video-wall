@@ -16,22 +16,24 @@
     margin:24px 0 8px;
     font-size:1.8rem;
   }
-  #geobear-youtube-gallery {
-    --cols:3;
-    --gap:16px;
-    --radius:12px;
-    --shadow:0 6px 18px rgba(41,194,222,0.25);
-    max-width:1200px;
-    margin:auto;
-    padding:24px;
-  }
-  #geobear-youtube-grid {
-    display:grid;
-    grid-template-columns:repeat(var(--cols),1fr);
-    gap:var(--gap);
-  }
-  @media (max-width:900px){#geobear-youtube-gallery{--cols:2;}}
-  @media (max-width:600px){#geobear-youtube-gallery{--cols:1;}}
+ #geobear-youtube-gallery {
+  --cols:3;
+  --gap:16px;
+  --radius:12px;
+  --shadow:0 6px 18px rgba(41,194,222,0.25);
+  max-width:1200px;
+  margin:auto;
+  padding:24px;
+}
+#geobear-youtube-grid {
+  display:grid;
+  grid-template-columns:repeat(3, 1fr); /* fixed three columns */
+  gap:var(--gap);
+}
+/* Optional: still drop to 2 on very small screens */
+@media (max-width:700px){ #geobear-youtube-grid{ grid-template-columns:repeat(2,1fr);} }
+@media (max-width:420px){ #geobear-youtube-grid{ grid-template-columns:repeat(1,1fr);} }
+
   .card {
     border-radius:var(--radius);
     overflow:hidden;
