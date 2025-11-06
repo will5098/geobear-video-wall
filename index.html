@@ -16,15 +16,16 @@
     margin:24px 0 8px;
     font-size:1.8rem;
   }
- #geobear-youtube-gallery {
+#geobear-youtube-gallery {
   --cols:3;
   --gap:16px;
   --radius:12px;
   --shadow:0 6px 18px rgba(41,194,222,0.25);
   max-width:1200px;
-  margin:auto;
-  padding:24px;
+  margin:0 auto 20px auto; /* top 0, bottom 20px */
+  padding:24px 24px 0 24px; /* remove bottom padding */
 }
+
 #geobear-youtube-grid {
   display:grid;
   grid-template-columns:repeat(3, 1fr); /* fixed three columns */
