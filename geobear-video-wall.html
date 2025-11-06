@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Geobear Customer Testimonials</title>
+<style>
+  body {
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f8fafa;
+  }
+  h2 {
+    text-align:center;
+    color:#29c2de;
+    margin:24px 0 8px;
+    font-size:1.8rem;
+  }
+  #geobear-youtube-gallery {
+    --cols:3;
+    --gap:16px;
+    --radius:12px;
+    --shadow:0 6px 18px rgba(41,194,222,0.25);
+    max-width:1200px;
+    margin:auto;
+    padding:24px;
+  }
+  #geobear-youtube-grid {
+    display:grid;
+    grid-template-columns:repeat(var(--cols),1fr);
+    gap:var(--gap);
+  }
+  @media (max-width:900px){#geobear-youtube-gallery{--cols:2;}}
+  @media (max-width:600px){#geobear-youtube-gallery{--cols:1;}}
+  .card {
+    border-radius:var(--radius);
+    overflow:hidden;
+    background:#fff;
+    box-shadow:var(--shadow);
+    cursor:pointer;
+    transition:transform .1s ease;
+    text-align:center;
+  }
+  .card:hover { transform:translateY(-3px); }
+  .thumb { width:100%; display:block; }
+  .title { padding:10px; font-weight:600; font-size:15px; display:none; }
+</style>
+</head>
+<body>
+
+<h2>Customer Testimonials</h2>
+<div id="geobear-youtube-gallery">
+  <div id="geobear-youtube-grid"></div>
+</div>
+
+<script>
+const videos=[
+  {id:'K-E8WEvwDt0',title:'Customer Testimonial – Paul Jackson'},
+  {id:'Pmu1tRtB_wk',title:'Customer Testimonial – Andrew White'},
+  {id:'MWzIw96uXS0',title:'Customer Testimonial – Josh Hall'},
+  {id:'-Q6U2KtUIKE',title:'Customer Testimonial – Lynne Swarbrick'},
+  {id:'8bJbmRJpLMM',title:'Customer Testimonial – Malcolm Sewell'},
+  {id:'1riMrd3iaRg',title:'Customer Testimonial – Alex Goble'},
+  {id:'JpcsWutYo98',title:'Customer Testimonial – Barry Carlino'}
+];
+
+const grid=document.getElementById('geobear-youtube-grid');
+
+videos.forEach(v=>{
+  const thumb='https://img.youtube.com/vi/'+v.id+'/hqdefault.jpg';
+  const card=document.createElement('div');
+  card.className='card';
+  card.innerHTML=
+    '<img src="'+thumb+'" alt="'+v.title+'" class="thumb">'+
+    '<div class="title">'+v.title+'</div>';
+  card.addEventListener('click',()=>{
+    card.innerHTML=
+      '<iframe width="100%" height="315" src="https://www.youtube.com/embed/'+v.id+'?autoplay=1" '+
+      'frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+  });
+  grid.appendChild(card);
+});
+</script>
+
+</body>
+</html>
